@@ -1,0 +1,31 @@
+{% extends 'homepage.html' %}
+{% block body %}
+<div class="img_outer">
+<div class="img_wrapper">
+<div class="img_view">
+  {% for image in images %}
+  <div class="img_cont">
+    <img src="images/{{image}}">
+  </div>
+  {% endfor %}
+</div>
+<div class="img_view_caption">
+  {% for line in caption %}
+  <div class="img_view_caption_line">
+    {{line | safe}}
+  </div>
+  {% endfor %}
+</div>
+</div>
+</div>
+<div class="thumbnails">
+  {% for thumb_img, thumb_url in thumbs %}
+  <div class="thumb_cont">
+    <a href="{{thumb_url}}"><img src="images/thumbnails/{{thumb_img}}"></a>
+  </div>
+  {% endfor %}
+</div>
+<div class="return_link">
+  back to <a href="{{section}}.html">{{section}}s</a>
+</div>
+{% endblock %}

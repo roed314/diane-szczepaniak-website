@@ -1,0 +1,12 @@
+{% extends 'homepage.html' %}
+{% block body %}
+<div class="contact">
+  <div class="header sock"> social media </div>
+  <div class="sock-links">
+    <span class="left"><a href="https://www.facebook.com/{{facebook}}/">Facebook</a></span>
+    <span class="right"><a href="https://www.instagram.com/{{instagram}}/">Instagram</a></span>
+  </div>
+  <div class="header contact-me"> contact me </div>
+  <iframe src="https://docs.google.com/forms/d/e/{{contact_id}}/viewform?embedded=true" width="640" height="1031" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+</div>
+{% endblock %}

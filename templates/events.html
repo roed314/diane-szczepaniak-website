@@ -1,0 +1,13 @@
+{% extends 'homepage.html' %}
+{% block body %}
+<div class="events-list">
+  {% for event in events %}
+  {# Have to hard code this since the include filename doesn't support templating #}
+  {% if event.template == 1 %}
+  {% include 'event1.html' %}
+  {% else %}
+  <div> TEMPLATE MISSING </div>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}

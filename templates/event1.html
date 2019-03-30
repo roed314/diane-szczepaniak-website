@@ -1,0 +1,76 @@
+<div id="{{event.id}}" class="event">
+  <h3 class="event-title">{{event.title | safe}}</h3>
+  <div class="event-headline">{{event.headline | safe}}</div>
+  <div class="event-date">{{event.date}}</div>
+  <div class="img-wrapper">
+  {% for img_name in event.img_names %}
+  {% if event.img_link %}
+  <div class="img">
+    <a href="{{event.img_link}}"><img src="images/events/{{img_name}}"></a>
+  </div>
+  {% else %}
+  <div class="img">
+    <img src="images/events/{{img_name}}">
+  </div>
+  {% endif %}
+  {% endfor %}
+  </div>
+  <div id="{{event.id + '-show'}}" class="show-button-wrapper">
+    <div class="show-button">
+      <a href="#{{event.id}}" onclick="return expand_event('{{event.id}}');">show details</a>
+    </div>
+  </div>
+  <div id="{{event.id}}-details" class="hidden">
+    {# Removing these
+    <div class="img-title">{{img_title | safe}}</div>
+    <div class="img-attr">{{event.img_medium | safe}}</div>
+    <div class="img-attr">{{event.img_dims | safe}}</div>
+    <div class="img-desc">{{event.img_desc | safe}}</div>
+    #}
+    <div class="spacer"></div>
+    {% if event.top_notes %}
+    <div class="event-notes">
+      {{event.top_notes}}
+    </div>
+    {% endif %}
+    <div class="event-details">
+      {% for subevent in event.subevents %}
+      <h4>{{subevent.title | safe}}</h4>
+      <div class="subevent-time">{{subevent.time}}</div>
+      {% endfor %}
+      {% if event.artists or event.curators or event.jurors %}
+      <div class="event-people">
+        {% if event.artists %}
+        <p>PARTICIPATING ARTISTS: {{event.artists | safe}}.</p>
+        {% endif %}
+        {% if event.curators %}
+        <p>Curated by {{event.curators | safe}}</p>
+        {% endif %}
+        {% if event.jurors %}
+        <p>Juror: {{event.jurors | safe}}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if event.bottom_notes %}
+      <div class="event-notes">
+        {{event.bottom_notes | safe}}
+      </div>
+      {% endif %}
+      {% if event.video_link %}
+      <div class="video-container">
+        <iframe width="560" height="315" src="{{event.video_link}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="video-desc">{{event.video_desc | safe}}</div>
+      </div>
+      {% endif %}
+      {% if event.address %}
+      <h4>{{event.address_title | safe}}</h4>
+      <div class="subevent-address">{{event.address | safe}}</div>
+      {% endif %}
+      <div class="show-button-wrapper">
+        <div class="show-button">
+          <a href="#{{event.id}}" onclick="contract_event('{{event.id}}');">Hide details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

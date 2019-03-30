@@ -1,0 +1,8 @@
+{% extends 'homepage.html' %}
+{% block body %}
+<div class="press-list">
+{% for publication, title, link, year in articles %}
+<p>{{publication}} - <a href="{{link}}">“{{title}}”</a> ({{year}})</p>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'homepage.html' %}
+{% block body %}
+<div class="resume">
+  <table>
+    {% for category in categories %}
+    <tr><td colspan="2" class="resume-section-title">{{ category }}</td></tr>
+    {% for year, line in items[category] %}
+    {% if year %}
+    <tr><td class="resume-year">{{ year }}</td><td>{{ line }}</td></tr>
+    {% else %}
+    <tr><td colspan="2">{{ line }}</td></tr>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

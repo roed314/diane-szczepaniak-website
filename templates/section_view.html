@@ -1,0 +1,17 @@
+{% extends 'homepage.html' %}
+{% block body %}
+<div class="img-grid">
+  {% for url, img, caption in images %}
+  <div class="section-img-wrap wrap-{{category}}">
+    <div class="section-img-box box-{{category}}">
+      <div class="section-img-innerbox">
+        <a href="{{url}}"><img class="section-img" src="images/{{img}}"></a>
+      </div>
+    </div>
+    <div class="section-img-caption">
+      <a href="{{url}}">{{caption}}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<title>Diane Szczepaniak{% if page_title %} | {{page_title}}{% endif %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Muli:300|Quicksand|Raleway:300" rel="stylesheet">
+</head>
+
+<body>
+<div class="menu">
+  <div class="artist">
+    <a href="index.html" target="_self">diane szczepaniak</a>
+  </div>
+  <div class="section-list">
+    <div class="section{% if section == 'drawing' %} active-section{% endif %}">
+      <a href="drawing.html">drawing</a>
+    </div>
+    <div class="section{% if section == 'painting' %} active-section{% endif %}">
+      <a href="painting.html">painting</a>
+    </div>
+    <div class="section{% if section == 'sculpture' %} active-section{% endif %}">
+      <a href="sculpture.html">sculpture</a>
+    </div>
+    <div class="section{% if section == 'about' %} active-section{% endif %}">
+      <a href="about.html">about</a>
+    </div>
+  </div>
+  {% if section == 'about' %}
+  <div class="subsection-list">
+    <div class="subsection{% if subsection == 'statement' %} active-section{% endif %}">
+      <a href="about.html">statement</a>
+    </div>
+    <div class="subsection{% if subsection == 'events' %} active-section{% endif %}">
+      <a href="events.html">events</a>
+    </div>
+    <div class="subsection{% if subsection == 'press' %} active-section{% endif %}">
+      <a href="press.html">press</a>
+    </div>
+    <div class="subsection{% if subsection == 'resume' %} active-section{% endif %}">
+      <a href="resume.html">resume</a>
+    </div>
+    <div class="subsection{% if subsection == 'contact' %} active-section{% endif %}">
+      <a href="contact.html">contact</a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+<br><br>
+{% block body -%}{%- endblock body %}
+</body>
+</html>
